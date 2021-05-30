@@ -58,20 +58,29 @@ public class ClientRepository {
      * @param (int) numLines
      * @return ArrayList<String>
      */
-    public ArrayList<String> readMultiLineFromServer(int numLines) {
+public ArrayList<Server> getCapableServerList(int ServerCount) {
+        ArrayList<Server> serverArrayList = new ArrayList<Server>();
         try {
-            // stores 'n' number of lines read into an Arraylist
-            ArrayList<String> lines = new ArrayList<String>();
-            // Loop which reads the messages and stores it into an ArrayList
-            for (int i = 0; i < numLines; i++) {
+            for (int i = 0; i < ServerCount; i++) {
                 message = readMessage();
-                lines.add(message);
-                // boolean to check if "NONE" has been read
+                String[] messageSplit = message.split(" ");
+                Server ServerInfo = new Server(
+                        messageSplit[0],                     //String: type
+                        Integer.parseInt(messageSplit[1]),   //int: id
+                        messageSplit[2],                     //String: state
+                        Integer.parseInt(messageSplit[3]),   //int: bootupTime
+                        Integer.parseInt(messageSplit[4]),   //int: coreCount
+                        Integer.parseInt(messageSplit[5]),   //int: memory
+                        Integer.parseInt(messageSplit[6]),   //int: disk
+                        Integer.parseInt(messageSplit[7]),   //int: estimatedWaittime
+                        Integer.parseInt(messageSplit[8])    //int: estimatedRuntime
+                );
+                serverArrayList.add(ServerInfo);
                 isNoneReceived = message.equals("NONE");
             }
-            return lines;
-        } catch (IOException e) {
-            message = "Error";
+            return serverArrayList;
+        } catch (IOException exception) {
+            message = "error";
             return null;
         }
     }
