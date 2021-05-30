@@ -13,6 +13,20 @@ public class Server implements Comparable<Server> {
     private int coreCount;
     private int memory;
     private int disk;
+    
+     //Setting all the Values for the server
+    public Server(String type, int id, String state, int bootupTime, int coreCount, int memory, int disk, int estimatedWaittime, int estimatedRuntime) {
+        this.type = type;
+        this.id = id;
+        this.state = state;
+        this.bootupTime = bootupTime;
+        this.coreCount = coreCount;
+        this.memory = memory;
+        this.disk = disk;
+        this.estimatedWaittime = estimatedWaittime;
+        this.estimatedRuntime = estimatedRuntime;
+    }
+    
 
     // The Setters for the server
     public void setType(String type) {
