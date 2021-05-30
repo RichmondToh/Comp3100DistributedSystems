@@ -108,13 +108,14 @@ public class Client {
                         int ServerCount = Integer.parseInt(message.split(" ")[1]);
                         mRepository.sendMessage("OK");       
                         
-                        
+                        //Gets the serverList which are capable of running the Job
                         ArrayList<Server> serverList = mRepository.getCapableServerList(ServerCount);
                         mRepository.sendMessage("OK");
                         message = mRepository.readMessage();
                         
-                        
+                        //Schedules The Job and uses the "NewAlgorithm" on the list of provided servers to find the optimal Solution 
                         mRepository.sendMessage("SCHD " + job.getJobId() + " " + new NewAlgorithm().getServer(serverList));
+                        
                         break;
                     // When server sends a complete message we send a REDY to fetch another job
                     case "JCPL":
