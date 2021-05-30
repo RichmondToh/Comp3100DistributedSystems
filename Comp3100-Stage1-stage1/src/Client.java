@@ -1,3 +1,4 @@
+
 import data.Job;
 import data.Server;
 import scheduler.*;
@@ -7,8 +8,7 @@ import java.util.ArrayList;
 public class Client {
     private ClientRepository mRepository;
     private String message;
-    Server largestServer = null;
-    ServerProvider mServerProvider = null;
+ 
 
     /**
      * [main]
@@ -18,7 +18,7 @@ public class Client {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println("=========================================STARTED=======================================");
+    	System.out.println("=========================================STARTED=======================================");
         ClientRepository repository = new ClientRepository();
         Client client = new Client(repository);
         client.connectToServer();
@@ -27,9 +27,8 @@ public class Client {
         System.out.println("========================================COMPLETED======================================");
     }
 
-    public Client(ClientRepository repository, ServerProvider serverProvider) {
+    public Client(ClientRepository repository) {
         mRepository = repository;
-        mServerProvider = serverProvider;
     }
 
     // Calling the connectToServer method from the ClientRepository
@@ -110,12 +109,10 @@ public class Client {
                         break;
                 }
             }
-
             quit();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void quit() throws IOException {
