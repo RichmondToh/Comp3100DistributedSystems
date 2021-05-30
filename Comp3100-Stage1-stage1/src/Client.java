@@ -75,12 +75,12 @@ public class Client {
     /**
      * [scheduleJobs]
      * This is the main job scheduling part after handshaking with the server
-     * The Client and server will continute to send and receive messages.
+     * The Client and server will continue to send and receive messages.
      * The Client will continue to listen so long as it doesn't get a "NONE"
      * from the server, which signifies that there are not jobs left.
      *
      * in our code below we have implemented a switch case for all the different
-     * types of senarious or messages the server can send the client so that it
+     * types of scenarios or messages the server can send the client so that it
      * can be individually dealt with.
      */
     private void scheduleJobs() {
