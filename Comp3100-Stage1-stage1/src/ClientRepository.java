@@ -46,17 +46,18 @@ public class ClientRepository {
         return message;
     }
 
-    /**
-     * [readMultiLineFromServer]
+     /**
+     * [getCapableServerList]
      *
-     * This method essentialy reads 'n' number of lines from the server
-     * each message is than stored into a ArrayList of Strings
-     * meanwhile if a single message recieved is equal to "NONE"
-     * the boolean value will turn true, and will catch any IOExceptions if
-     * necessary
-     *
-     * @param (int) numLines
-     * @return ArrayList<String>
+     * This method Essentially stores 'n' number of 
+     * Servers into a ArrayList of Servers by parsing the data
+     * it received from "GETS Capable" (Servers which can run the job)
+     * meanwhile if a single message received is equal to "NONE"
+     * the boolean value will turn true, and will catch 
+     * any IOExceptions if necessary
+     * 
+     * @param (int) ServerCount
+     * @return ArrayList<Server>
      */
 public ArrayList<Server> getCapableServerList(int ServerCount) {
         ArrayList<Server> serverArrayList = new ArrayList<Server>();
