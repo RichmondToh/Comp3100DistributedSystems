@@ -25,6 +25,7 @@ public class Client {
      * @param args
      */
     public static void main(String[] args) {
+        System.out.println("=========================================STARTED=======================================");
         DsSystem dsSystem = null;
 
         try {
@@ -39,6 +40,7 @@ public class Client {
         client.serverHandshake();
         client.largestServer = Collections.max(dsSystem.getServerArray().getServerList());
         client.scheduleJobs();
+        System.out.println("========================================COMPLETED======================================");
     }
 
     public Client(ClientRepository repository, ServerProvider serverProvider) {
