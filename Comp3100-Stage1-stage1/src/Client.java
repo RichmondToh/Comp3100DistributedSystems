@@ -26,19 +26,10 @@ public class Client {
      */
     public static void main(String[] args) {
         System.out.println("=========================================STARTED=======================================");
-        DsSystem dsSystem = null;
-
-        try {
-            Path absolutePath = FileSystems.getDefault().getPath("").toAbsolutePath();
-            dsSystem = ParseXml.parse(absolutePath + "/ds-system.xml", DsSystem.class);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
         ClientRepository repository = new ClientRepository();
-        Client client = new Client(repository, new LargestServerProvider());
+        Client client = new Client(repository);
         client.connectToServer();
         client.serverHandshake();
-        client.largestServer = Collections.max(dsSystem.getServerArray().getServerList());
         client.scheduleJobs();
         System.out.println("========================================COMPLETED======================================");
     }
