@@ -1,3 +1,5 @@
+import data.Server;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -46,7 +48,7 @@ public class ClientRepository {
         return message;
     }
 
-     /**
+    /**
      * [getCapableServerList]
      *
      * This method Essentially stores 'n' number of 
@@ -59,7 +61,7 @@ public class ClientRepository {
      * @param (int) ServerCount
      * @return ArrayList<Server>
      */
-public ArrayList<Server> getCapableServerList(int ServerCount) {
+    public ArrayList<Server> getCapableServerList(int ServerCount) {
         ArrayList<Server> serverArrayList = new ArrayList<Server>();
         try {
             for (int i = 0; i < ServerCount; i++) {
