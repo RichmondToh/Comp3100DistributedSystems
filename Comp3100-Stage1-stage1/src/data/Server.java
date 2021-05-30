@@ -24,35 +24,6 @@ public class Server implements Comparable<Server> {
     }
     
 
-    // The Setters for the server
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setLimit(String limit) {
-        this.limit = limit;
-    }
-
-    public void setBootupTime(String bootupTime) {
-        this.bootupTime = bootupTime;
-    }
-
-    public void setHourlyRate(String hourlyRate) {
-        this.hourlyRate = hourlyRate;
-    }
-
-    public void setCoreCount(int coreCount) {
-        this.coreCount = coreCount;
-    }
-
-    public void setMemory(int memory) {
-        this.memory = memory;
-    }
-
-    public void setDisk(int disk) {
-        this.disk = disk;
-    }
-
     @Override
     public int compareTo(Server server) {
         // The order of comparison is : Corecount -> Memory -> Disk space
