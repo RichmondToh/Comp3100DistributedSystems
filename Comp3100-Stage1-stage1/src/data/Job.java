@@ -13,17 +13,17 @@ public class Job {
      * Parses all the XML of the job into this class
      * using a string array.
      *
-     * @param jM
+     * @param JobInfo
      */
-    public Job(String[] jM) {
+    public Job(String[] JobInfo) {
         this(
-                jM[0],
-                Integer.parseInt(jM[1]),
-                Integer.parseInt(jM[2]),
-                Integer.parseInt(jM[3]),
-                Integer.parseInt(jM[4]),
-                Integer.parseInt(jM[5]),
-                Integer.parseInt(jM[6])
+        		JobInfo[0],
+                Integer.parseInt(JobInfo[1]),
+                Integer.parseInt(JobInfo[2]),
+                Integer.parseInt(JobInfo[3]),
+                Integer.parseInt(JobInfo[4]),
+                Integer.parseInt(JobInfo[5]),
+                Integer.parseInt(JobInfo[6])
         );
 
     }
@@ -41,13 +41,28 @@ public class Job {
      * @param disk
      */
     public Job(String jobType, int submitTime, int jobId, int estRuntime, int core, int memory, int disk) {
-        this.jobType = jobType; // JOBN or JOBP
+        this.jobType = jobType; 
         this.submitTime = submitTime;
         this.jobId = jobId;
         this.estRuntime = estRuntime;
         this.core = core;
         this.memory = memory;
         this.disk = disk;
+    }
+    public int getEstRuntime() {
+        return estRuntime;
+    }
+
+    public int getCore() {
+        return core;
+    }
+
+    public int getMemory() {
+        return memory;
+    }
+
+    public int getDisk() {
+        return disk;
     }
 
     public int getJobId() {
