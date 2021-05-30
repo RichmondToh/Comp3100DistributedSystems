@@ -102,14 +102,19 @@ public class Client {
                     case "JOBN": // same as "JOBP"
                     case "JOBP":
                         Job job = new Job(messageArray);
-                        mRepository.sendMessage("GETS Avail " + job.GET());
+                        mRepository.sendMessage("GETS Capable " + job.GET());
+                        
                         message = mRepository.readMessage();
-                        int numOfLines = Integer.parseInt(message.split(" ")[1]);
-                        mRepository.sendMessage("OK");
-                        ArrayList<String> serverStatus = mRepository.readMultiLineFromServer(numOfLines);
+                        int ServerCount = Integer.parseInt(message.split(" ")[1]);
+                        mRepository.sendMessage("OK");       
+                        
+                        
+                        ArrayList<Server> serverList = mRepository.getCapableServerList(ServerCount);
                         mRepository.sendMessage("OK");
                         message = mRepository.readMessage();
-                        mRepository.sendMessage("SCHD " + job.getJobId() + " " + mServerProvider.getServer(serverStatus, largestServer.getType()));
+                        
+                        
+                        mRepository.sendMessage("SCHD " + job.getJobId() + " " + new NewAlgorithm().getServer(serverList));
                         break;
                     // When server sends a complete message we send a REDY to fetch another job
                     case "JCPL":
