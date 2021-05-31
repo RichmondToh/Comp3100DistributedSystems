@@ -28,7 +28,7 @@ public class NewAlgorithm {
     		  
 	            @Override
 	            public int compare(Server S1, Server S2) {
-	            	//Compares Server1 with Server2 in the list and check which has the lowest estimated waiting time.
+	            	//Compares Server1 with Server2 in the list and checks which has the lowest estimated waiting time.
 	                 return Integer.compare(S1.getEstimatedWaittime(), S2.getEstimatedWaittime());
 	            }
 	       });
